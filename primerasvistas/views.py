@@ -1,21 +1,30 @@
-from multiprocessing import context
+
 from django.http import HttpResponse
 from datetime import datetime
 
-from django.template import Template, Context
+
+from django.template import Template, Context, loader
 
 
 def inicio(request):
     return HttpResponse('hola soy mi primer vista')
 
+
+
 def mi_template(request):
-    archivo = open(r'C:\Users\Santy1\Desktop\TpEntregable\templates\main.html', 'r')
-    template_1 = Template(archivo.read())
-    archivo.close()
-    contexto1 = Context()
     
-    render1 = template_1.render(contexto1)
+    template1 = loader.get_template('main.html')
+
+    nombre = 'momia'
+    apellido = "Negra"
+    render1 = template1.render({'nombre': nombre, 'apellido': apellido, 'edad':5500})
     return HttpResponse(render1)
+
+
+    
+def saludo(request, nombre):
+    return HttpResponse(f'Hola : {nombre} ')
+    
     
 def ver_fecha(request):
     fecha_actual = datetime.now()

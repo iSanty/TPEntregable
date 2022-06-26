@@ -54,7 +54,7 @@ ROOT_URLCONF = 'MTVgrupo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'C:\Users\Santy1\Desktop\TpEntregable\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
